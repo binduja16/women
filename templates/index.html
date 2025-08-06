@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Roommate Harmony | Find Your Perfect Match</title>
+  <link rel="stylesheet" href="/static/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <script src="/static/script.js"></script>
+</head>
+<body>
+  <div class="background-pattern"></div>
+  <div class="container">
+    <header class="header">
+      <div class="logo-container">
+        <div class="logo">
+          <i class="fas fa-heart"></i>
+          <span>RoommateHarmony</span>
+        </div>
+        <p class="tagline">Connecting women for harmonious living</p>
+      </div>
+      <div class="header-content">
+        <h1>Find Your Perfect <span>Roommate Match</span></h1>
+        <p class="subtitle">Our smart algorithm connects you with compatible roommates based on lifestyle, values, and personality</p>
+      </div>
+
+      <!-- ✅ Logout Button (separate from the form) -->
+      <div class="logout-container">
+        <form action="/logout" method="post">
+          <button type="submit" class="logout-btn">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </button>
+        </form>
+      </div>
+    </header>
+
+    <main class="form-container">
+      <form action="/submit-profile" method="post" class="profile-form">
+        <!-- Personal Information Section -->
+        <div class="form-section">
+          <div class="section-header">
+            <i class="fas fa-user-circle"></i>
+            <h3>Personal Information</h3>
+          </div>
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <div class="input-wrapper">
+              <i class="fas fa-user"></i>
+              <input type="text" id="name" name="name" placeholder="Your full name" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="age">Age</label>
+              <div class="input-wrapper">
+                <i class="fas fa-birthday-cake"></i>
+                <input type="number" id="age" name="age" placeholder="Your age" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="location_city">City</label>
+              <div class="input-wrapper">
+                <i class="fas fa-map-marker-alt"></i>
+                <input type="text" id="location_city" name="location_city" placeholder="Current city" required />
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="location_area">Neighborhood Preference</label>
+            <div class="input-wrapper">
+              <i class="fas fa-home"></i>
+              <input type="text" id="location_area" name="location_area" placeholder="Preferred neighborhood" required />
+            </div>
+          </div>
+        </div>
+
+        <!-- Lifestyle Preferences Section -->
+        <div class="form-section">
+          <div class="section-header">
+            <i class="fas fa-heartbeat"></i>
+            <h3>Lifestyle Preferences</h3>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="sleep_schedule">Sleep Schedule</label>
+              <div class="select-wrapper">
+                <i class="fas fa-moon"></i>
+                <select id="sleep_schedule" name="sleep_schedule" required>
+                  <option value="" disabled selected>Select your rhythm</option>
+                  <option value="Early">Early Bird (before 10pm)</option>
+                  <option value="Late">Night Owl (after midnight)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="work_hours">Work Schedule</label>
+              <div class="select-wrapper">
+                <i class="fas fa-briefcase"></i>
+                <select id="work_hours" name="work_hours" required>
+                  <option value="" disabled selected>Select your schedule</option>
+                  <option value="Day">Day Shift (9am-5pm)</option>
+                  <option value="Night">Night Shift</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cleanliness">Cleanliness Preference</label>
+              <div class="select-wrapper">
+                <i class="fas fa-broom"></i>
+                <select id="cleanliness" name="cleanliness" required>
+                  <option value="" disabled selected>Select your preference</option>
+                  <option value="Neat">Very Neat</option>
+                  <option value="Average">Average</option>
+                  <option value="Messy">Messy</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="social_behavior">Social Preference</label>
+              <div class="select-wrapper">
+                <i class="fas fa-comments"></i>
+                <select id="social_behavior" name="social_behavior" required>
+                  <option value="" disabled selected>Select your style</option>
+                  <option value="Introvert">Introvert</option>
+                  <option value="Extrovert">Extrovert</option>
+                  <option value="Ambivert">Ambivert</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interests Section -->
+        <div class="form-section">
+          <div class="section-header">
+            <i class="fas fa-star"></i>
+            <h3>Your Interests</h3>
+          </div>
+          <div class="form-group">
+            <label for="interests">Hobbies & Interests</label>
+            <div class="input-wrapper">
+              <i class="fas fa-heart"></i>
+              <input type="text" id="interests" name="interests" placeholder="e.g. yoga, reading, cooking, hiking" required />
+            </div>
+            <p class="hint">Share at least 3 interests to help us find better matches</p>
+          </div>
+        </div>
+
+        <div class="form-footer">
+          <button type="submit" class="submit-btn">
+            <span>Find My Perfect Match</span>
+            <i class="fas fa-arrow-right"></i>
+          </button>
+          <p class="privacy-note">
+            <i class="fas fa-lock"></i> We prioritize

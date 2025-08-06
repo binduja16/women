@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <style>
+    /* Soft Pink & White Color Scheme */
+    :root {
+      --soft-pink: #FFD6E0;
+      --pink-accent: #FF9BB3;
+      --white: #FFF9FB;
+      --light-gray: #F0F0F0;
+      --text-color: #555;
+      --dark-pink: #E75480;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--soft-pink);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: var(--text-color);
+    }
+
+    .container {
+      background-color: var(--white);
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      width: 100%;
+      max-width: 380px;
+      overflow: hidden;
+    }
+
+    .header {
+      background-color: var(--pink-accent);
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    h2 {
+      color: white;
+      margin: 0;
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .form-content {
+      padding: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.9rem 1.2rem;
+      border: 2px solid var(--light-gray);
+      border-radius: 10px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+      background-color: var(--white);
+    }
+
+    input:focus {
+      outline: none;
+      border-color: var(--pink-accent);
+      box-shadow: 0 0 0 3px rgba(255, 155, 179, 0.2);
+    }
+
+    input::placeholder {
+      color: #AAA;
+    }
+
+    button {
+      width: 100%;
+      padding: 1rem;
+      background-color: var(--pink-accent);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 0.5rem;
+    }
+
+    button:hover {
+      background-color: var(--dark-pink);
+      transform: translateY(-2px);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    .register-link {
+      display: block;
+      text-align: center;
+      margin-top: 1.8rem;
+      color: var(--pink-accent);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .register-link:hover {
+      color: var(--dark-pink);
+      text-decoration: underline;
+    }
+
+    .error {
+      color: var(--dark-pink);
+      background: rgba(231, 84, 128, 0.1);
+      padding: 0.8rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+      text-align: center;
+      border: 1px solid rgba(231, 84, 128, 0.2);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 480px) {
+      .container {
+        margin: 0 1rem;
+      }
+      
+      .form-content {
+        padding: 1.8rem 1.5rem;
+      }
+      
+      h2 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h2>Login</h2>
+    </div>
+    <div class="form-content">
+      {% if error %}
+        <div class="error">{{ error }}</div>
+      {% endif %}
+      <form method="post">
+        <div class="form-group">
+          <input name="username" placeholder="Username" required>
+        </div>
+        <div class="form-group">
+          <input name="password" type="password" placeholder="Password" required>
+        </div>
+        <button type="submit">Sign In</button>
+      </form>
+      <a href="/register" class="register-link">Don't have an account? Register</a>
+    </div>
+  </div>
+</body>
+</html>

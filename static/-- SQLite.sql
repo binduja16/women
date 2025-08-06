@@ -1,0 +1,3 @@
+-- SQLite
+ALTER TABLE UserData ADD COLUMN city TEXT;
+ALTER TABLE UserData ADD COLUMN location TEXT;

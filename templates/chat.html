@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #FFF9FB;
+            padding: 20px;
+        }
+
+        .chat-box {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            height: 400px;
+            overflow-y: scroll;
+        }
+
+        .message {
+            margin-bottom: 15px;
+        }
+
+        .message.you {
+            text-align: right;
+        }
+
+        .message .bubble {
+            display: inline-block;
+            padding: 10px 15px;
+            border-radius: 20px;
+            max-width: 70%;
+        }
+
+        .you .bubble {
+            background-color: #FF9BB3;
+            color: white;
+        }
+
+        .them .bubble {
+            background-color: #eee;
+            color: #333;
+        }
+
+        .send-box {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .send-box input[type="text"] {
+            width: 70%;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .send-box button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #E75480;
+            color: white;
+            border-radius: 10px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align:center;">Chat with User {{ receiver_id }}</h2>
+    <div class="chat-box">
+        {% for msg in messages %}
+            <div class="message {% if msg[0] == user_id %}you{% else %}them{% endif %}">
+                <div class="bubble">{{ msg[2] }}</div>
+                <div style="font-size: 0.75rem; color: #999;">{{ msg[3] }}</div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="send-box">
+        <form method="post" action="/send_message">
+            <input type="hidden" name="receiver_id" value="{{ receiver_id }}">
+            <input type="text" name="message" placeholder="Type your message..." required>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+</body>
+</html>
